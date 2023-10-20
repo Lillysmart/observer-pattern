@@ -1,18 +1,23 @@
-
-/*class counter {
-  value = 1;
-
-  increase() {
-    this.value +=1
-  }
-  decrease(){
-    this.value -=1
-  }
-  log(){
-    console.log (this.value)
-  }
+import { subscriber,update,Action } from "./store.js";
+const handler = (prev,next)=>{
+  console.log(prev ,next)
 }
-const instance = new counter ()
-instance.increase()
-instance.decrease()
-instance.log()*/
+const unSubscribe= subscriber(handler)
+
+/**
+ * @type {Action}
+ */
+const customAction= (prev)=>{
+return{
+  ...state,
+  wind:{
+    ...state.wind,
+    value:state.value+19
+  },
+}
+}
+update(customAction)
+unSubscribe()
+update(customAction)
+update(customAction)
+update(customAction)

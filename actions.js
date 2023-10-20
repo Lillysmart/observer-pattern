@@ -7,7 +7,7 @@
  export const decrease = (state) => {
     return {
       ...state,
-      value: state.value - 1,
+      value: state.window.value - 19,
     };
   };
   
