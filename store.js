@@ -14,14 +14,14 @@
  * @param {State} next
  * @param {State} prev
  */
-
+export const Notify= {}
 /**
  * @callback Action
- * @param {State}
  * @returns {State}
+ * @param {State}
  */
 
-export const Action{}
+export const Action= {}
 
 /**
  * @callback Update
@@ -77,7 +77,7 @@ export const update = (action) => {
   const next = Object.freeze({ ...action(prev) });
 
   const handler = (notify) => {
-    notify(prev, next);
+    notify( next,prev);
   };
   notifiers.forEach(handler);
 
